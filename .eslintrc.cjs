@@ -5,7 +5,9 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:svelte/recommended',
-		'prettier'
+		'prettier',
+		'plugin:import/recommended',
+		'plugin:import/typescript'
 	],
 	parser: '@typescript-eslint/parser',
 	plugins: ['@typescript-eslint'],
@@ -27,5 +29,54 @@ module.exports = {
 				parser: '@typescript-eslint/parser'
 			}
 		}
-	]
+	],
+	settings: {
+		'import/resolver': {
+			typescript: {
+				project: ['./.svelte-kit/tsconfig.json']
+			}
+		},
+		'import/extensions': ['.ts', '.svelte'],
+		'import/core-modules': ['$app/navigation', '$app/forms', '$app/stores', '$app/environment']
+	},
+	rules: {
+		'object-curly-spacing': ['warn', 'always'],
+		curly: ['error', 'all'],
+		'no-unused-vars': [
+			'warn',
+			{
+				vars: 'all',
+				destructuredArrayIgnorePattern: '^_',
+				varsIgnorePattern: `\\$\\$Props`,
+				args: 'none'
+			}
+		],
+		'@typescript-eslint/no-unused-vars': [
+			'warn',
+			{
+				vars: 'all',
+				destructuredArrayIgnorePattern: '^_',
+				varsIgnorePattern: `\\$\\$Props`,
+				args: 'none'
+			}
+		],
+		'import/no-extraneous-dependencies': [
+			'error',
+			{
+				devDependencies: [
+					'vite.config.ts',
+					'svelte.config.js',
+					'tailwind.config.cjs',
+					'**/*.test.ts',
+					'**/*.spec.ts',
+					'src/tests/**/*'
+				]
+			}
+		],
+		'import/prefer-default-export': 'off',
+		'no-restricted-exports': 'off',
+		'import/extensions': ['off'],
+		'import/no-duplicates': ['off'],
+		'@typescript-eslint/no-non-null-assertion': 'off'
+	}
 };
