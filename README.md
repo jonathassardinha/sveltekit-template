@@ -21,10 +21,13 @@ pnpm install
 To run the project:
 
 ```bash
-pnpm run dev
+pnpm dev
 
-# or start the server and open the app in a new browser tab
-pnpm run dev -- --open
+# to host the app for your local network
+pnpm dev --host
+
+# to run the app and open it in a new tab in the browser
+pnpm dev --open
 ```
 
 ## Building
