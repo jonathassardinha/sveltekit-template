@@ -37,7 +37,10 @@ module.exports = {
 			}
 		},
 		'import/extensions': ['.ts', '.svelte'],
-		'import/core-modules': ['$app/navigation', '$app/forms', '$app/stores', '$app/environment']
+		'import/core-modules': ['$app/navigation', '$app/forms', '$app/stores', '$app/environment'],
+		// prettier-ignore
+		// eslint-disable-next-line no-useless-escape
+		'import/ignore': ['\.svelte$']
 	},
 	rules: {
 		'object-curly-spacing': ['warn', 'always'],
@@ -74,9 +77,11 @@ module.exports = {
 			}
 		],
 		'import/prefer-default-export': 'off',
-		'no-restricted-exports': 'off',
+		'import/no-named-as-default': 'off',
+		'import/no-named-as-default-member': 'off',
 		'import/extensions': ['off'],
 		'import/no-duplicates': ['off'],
+		'no-restricted-exports': 'off',
 		'@typescript-eslint/no-non-null-assertion': 'off'
 	}
 };
