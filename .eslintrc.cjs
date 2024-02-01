@@ -68,6 +68,7 @@ module.exports = {
 			{
 				devDependencies: [
 					'vite.config.ts',
+					'vitest-setup.ts',
 					'svelte.config.js',
 					'tailwind.config.cjs',
 					'**/*.test.ts',
